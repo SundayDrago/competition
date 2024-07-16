@@ -5,15 +5,15 @@
     
   </head>
   <body>
-      @include('admin.arrange')
+       @include('admin.arrange')
       <!-- partial:partials/_sidebar.html -->
       @include('admin.sidebar')
-      <!-------------partial------------->
+      <!-- partial -->
       @include('admin.navbar')
-      <!-------------partial------------->
-      @include('admin.body')
-      <!---container-scroller------------>
+        <!-- partial -->
+          
+    <!-- container-scroller -->
       @include('admin.script')
-      <!-- End custom js for this page -->
+    <!-- End custom js for this page -->
   </body>
 </html>

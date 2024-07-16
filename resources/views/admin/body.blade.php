@@ -10,16 +10,12 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-
+                        <div class="ms-3 text-center">
+                        <h3 class="mb-0 text-success">Total Schools</h3>
+                        <p class="text-success ms-2 mb-0 font-weight-medium">0</p>
                         </div>
                       </div>
-                      <div class="col-3">
-                        
-                      </div>
                     </div>
-
-
                   </div>
                 </div>
               </div>
@@ -28,8 +24,9 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-
+                        <div class="ms-3 text-center #00000" >
+                        <h3 class="mb-0 text-success">Total Schools</h3>
+                        <p class="text-success ms-2 mb-0 font-weight-medium">0</p>
                         </div>
                       </div>
                       <div class="col-3">
@@ -46,18 +43,12 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">$31.53</h3>
-                          <p class="text-success ms-2 mb-0 font-weight-medium">+3.5%</p>
-                        </div>
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success ">
-                          <span class="mdi mdi-arrow-top-right icon-item"></span>
+                        <div class="ms-3 text-center">
+                          <h3 class="mb-0 text-success">Rejected Part.</h3>
+                          <p class="text-success ms-2 mb-0 font-weight-medium">0</p>
                         </div>
                       </div>
                     </div>
-                    <h6 class="text-muted font-weight-normal">Expense current</h6>
                   </div>
                 </div>
               </div>
