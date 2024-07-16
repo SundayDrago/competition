@@ -1,0 +1,32 @@
+package org.mindrot.jbcrypt;
+
+public class BCrypt {
+    /**
+     * The default number of rounds for the Blowfish algorithm.
+     */
+    public static final int DEFAULT_ROUNDS = 12;
+
+    /**
+     * The maximum number of rounds for the Blowfish algorithm.
+     */
+    public static final int MAX_ROUNDS = 31;
+
+    /**
+     * The minimum number of rounds for the Blowfish algorithm.
+     */
+    public static final int MIN_ROUNDS = 4;
+
+	public static Object gensalt(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static String hashpw(String password, Object gensalt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+    // ... (rest of the BCrypt class implementation)
+    
+    
+}
