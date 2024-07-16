@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -10,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->id();
-            $table->string('Questions');
-            $table->foreignId('challenge_id')->constrained('challenges')->after('id');
-            $table->timestamps();
+        Schema::create('cache', function (Blueprint $table) {
+            $table->string('key')->unique();
+            $table->text('value');
+            $table->integer('expiration');
+            $table->primary('key');
+            $table->index('expiration');
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('cache');
     }
 };

@@ -12,39 +12,43 @@ use App\Models\Question;
 
 use App\Models\Participants;
 
+use App\Models\Rejected;
+
 use App\Models\Challenge;
+
+use App\Models\Answer;
 
 use App\Models\Representative;
 
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\QuestionsImport;
-use App\Imports\AnswersImport;
 
-//use PhpOffice\phpSpreadsheet\IOFactory;
+use App\Imports\QuestionsImport;
+
+use App\Imports\AnswersImport;
 
 class AdminController extends Controller
 {
 
-    public function addview(){
-        return view('admin.add_schools');
-    }
+public function addview(){
+    return view('admin.add_schools');
+}
 
-    public function addschools(Request $request){
-       $school =new school;
+public function addschools(Request $request){
+    $school =new school;
 
-       $school->name=$request->name;
-       $school->school_district=$request->school_district;
-       $school->registration_number=$request->registration_number;
-       $school->representative_name=$request->representative_name;
-       $school->representative_email=$request->representative_email;
+    $school->name=$request->name;
+    $school->district=$request->district;
+    $school->registration_number=$request->registration_number;
+    $school->representative_name=$request->representative_name;
+    $school->representative_email=$request->representative_email;
 
-       $school ->save();
+    $school ->save();
 
-       return redirect()->back()->with('message', 'School added successfully!');
+    return redirect()->back()->with('message', 'School added successfully!');
 
-    }
+}
 
-    public function participantview(){
+public function participantview(){
     $data =participants::all();
     return view('admin.participant', compact('data'));
 }
@@ -61,7 +65,7 @@ public function add_challenges(Request $request)
     $challenges->num_questions =$request->num_questions;
     return view('admin.challenges');
    }
-   public function representative_view(){
+public function representative_view(){
     $data1 =reprsentative::all();
     return view('admin.representative', compact('data1'));
 }
@@ -96,10 +100,10 @@ public function createChallenge()
     $questions = Question::inRandomOrder()->take(10)->get(); // Get 10 random questions
     $challenge = [];
 
-    foreach ($questions as $question) {
-        $answers = Answer::where('question_id', $question->id)->get();
+    foreach ($questions as $questions) {
+        $answers = Answer::where('question_id', $questions->id)->get();
         $challenge[] = [
-            'question' => $question,
+            'questions' => $questions,
             'answers' => $answers
         ];
     }
@@ -107,4 +111,24 @@ public function createChallenge()
     return view('admin.challenges', compact('challenge'));
 }
 
+
+//Rejected participants function
+public function viewrejected(){
+    $data =rejected::all();
+    return view('admin.rejected', compact('data'));
+   }
+
+//View reports
+public function viewreport(){
+    return view('admin.report');
 }
+
+
+//View attempt
+public function viewattempt(){
+    return view('admin.attempt');
+}
+}
+
+
+

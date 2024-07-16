@@ -11,8 +11,8 @@ class Question extends Model
 
     protected $table = 'questions';
     protected $fillable = [
-        'Questions',
-        'challenge_id',
+        'question_text',
+        'category',
     ];
 
     public function challenge()

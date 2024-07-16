@@ -17,6 +17,16 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
+
+    <!-- Include Bootstrap CSS (assuming you have this part) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    .text-dark{
+      color:#000 !important;
+    }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="dist/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="dist/assets/images/favicon.png" />
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">

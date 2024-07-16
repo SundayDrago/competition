@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function redirect(){
         if(Auth::id()){
             if(Auth::user()->usertype=='representative'){
-                return view('dashboard');
+                return view('user.home');
             }
             else{
                 return view('admin.home');

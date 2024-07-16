@@ -57,10 +57,7 @@
           </li>
           <li class="nav-item menu-items">
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{route('admin.home')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
+            <a class="nav-link" href="{{url('dashboard')}}">
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
@@ -72,14 +69,39 @@
               <span class="menu-title">Schools</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url('retrieve_participants') }}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document"></i>
-              </span>
-              <span class="menu-title">Participants</span>
-            </a>
-          </li>
+
+          <!-- Your Navigation Structure -->
+<li class="nav-item menu-items">
+    <a class="nav-link" data-toggle="collapse" href="#participantSubMenu" aria-expanded="false" aria-controls="participantSubMenu">
+        <span class="menu-icon">
+            <i class="mdi mdi-account-group"></i>
+        </span>
+        <span class="menu-title">Participant</span>
+        <i class="menu-arrow"></i>
+    </a>
+    <div class="collapse" id="participantSubMenu">
+        <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('retrieve_participants') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-document"></i>
+                    </span>
+                    <span class="menu-title">Participants</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('participant_rejected') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-cancel"></i>
+                    </span>
+                    <span class="menu-title">Rejected</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+
+
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('challenge')}}">
@@ -89,26 +111,9 @@
               <span class="menu-title">Challenges</span>
             </a>
           </li>
+        
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('upload_questions')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document"></i>
-              </span>
-              <span class="menu-title">Upload Qns</span>
-            </a>
-          </li>
-          
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="docs/documentation.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document"></i>
-              </span>
-              <span class="menu-title">Upload Answers</span>
-            </a>
-          </li>
-
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="{{('view_attempts')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document"></i>
               </span>
@@ -117,7 +122,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="{{url('view_reports')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document"></i>
               </span>

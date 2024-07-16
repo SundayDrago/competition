@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email', 255)->nullable(false);
             $table->date('date_of_birth')->nullable(false);
             $table->string('registration_number', 100)->nullable(); // Change to string
-
+            $table->date('status')->nullable(false);
             // Ensure the schools table exists and the column registration_number is indexed and unique
             $table->foreign('registration_number')->references('registration_number')->on('schools')->onDelete('cascade');
 
