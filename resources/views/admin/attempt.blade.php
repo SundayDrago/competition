@@ -11,7 +11,33 @@
       <!-- partial -->
       @include('admin.navbar')
         <!-- partial -->
-          
+        <div class="container mt-5">
+        <h1 class="mb-4">Attempts</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Challenge Number</th>
+                        <th>Username</th>
+                        <th>Student Number</th>
+                        <th>Score</th>
+                        <th>is Complete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($attempts as $attempt)
+                        <tr>
+                            <td>{{ $attempt->challengeNumber }}</td>
+                            <td>{{ $attempt->username }}</td> 
+                            <td>{{ $attempt->studentNumber }}</td>
+                            <td>{{ $attempt->score }}</td>
+                            <td>{{ $attempt->isComplete }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- container-scroller -->
       @include('admin.script')
     <!-- End custom js for this page -->

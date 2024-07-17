@@ -8,21 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
-
-    protected $table = 'questions';
     protected $fillable = [
-        'question_text',
-        'category',
+           'challengeNumber', 'question_text', 'marks'
     ];
 
     public function challenge()
     {
-        return $this->belongsTo(Challenge::class);
+        return $this->belongsTo(Challenge::class, 'challenge_id');
     }
 
+    /**
+     * Get the answers for the question.
+     */
     public function answers()
     {
         return $this->hasMany(Answer::class);
     }
-
 }

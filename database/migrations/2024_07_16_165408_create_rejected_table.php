@@ -12,16 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rejected', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('email')->unique();
+            $table->integer('id', true);
+            $table->string('username', 100)->unique('username');
+            $table->string('firstname', 100);
+            $table->string('lastname', 100);
+            $table->string('email');
             $table->date('date_of_birth');
-            $table->string('registration_number')->nullable();
+            $table->string('studentNumber', 50)->nullable();
             $table->string('image_path')->nullable();
-            $table->string('status')->default('active');
-            $table->timestamps();
         });
     }
 

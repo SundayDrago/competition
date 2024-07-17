@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('answers', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('question_id');
-            $table->text('answer_text');
+        Schema::table('questions', function (Blueprint $table) {
             $table->timestamps();
-
-            // Set up the foreign key constraint
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
     }
 
@@ -27,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('answers');
+        Schema::table('questions', function (Blueprint $table) {
+            //
+        });
     }
 };

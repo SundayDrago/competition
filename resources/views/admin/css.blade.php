@@ -16,7 +16,10 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
+     
     <!-- Layout styles -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!-- Include Bootstrap CSS (assuming you have this part) -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

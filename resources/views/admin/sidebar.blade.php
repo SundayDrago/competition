@@ -71,24 +71,25 @@
           </li>
 
           <!-- Your Navigation Structure -->
-<li class="nav-item menu-items">
-    <a class="nav-link" data-toggle="collapse" href="#participantSubMenu" aria-expanded="false" aria-controls="participantSubMenu">
+        <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#participantSubMenu" aria-expanded="false" aria-controls="participantSubMenu">
         <span class="menu-icon">
             <i class="mdi mdi-account-group"></i>
         </span>
         <span class="menu-title">Participant</span>
         <i class="menu-arrow"></i>
-    </a>
-    <div class="collapse" id="participantSubMenu">
+        </a>
+        <div class="collapse" id="participantSubMenu">
         <ul class="nav flex-column sub-menu">
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('retrieve_participants') }}">
                     <span class="menu-icon">
                         <i class="mdi mdi-file-document"></i>
                     </span>
-                    <span class="menu-title">Participants</span>
+                    <span class="menu-title">Registered</span>
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('participant_rejected') }}">
                     <span class="menu-icon">
@@ -96,12 +97,10 @@
                     </span>
                     <span class="menu-title">Rejected</span>
                 </a>
-            </li>
-        </ul>
-    </div>
-</li>
-
-
+              </li>
+              </ul>
+            </div>
+          </li>
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('challenge')}}">
@@ -109,6 +108,15 @@
                 <i class="mdi mdi-file-document"></i>
               </span>
               <span class="menu-title">Challenges</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('view_upload')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document"></i>
+              </span>
+              <span class="menu-title">Uploads</span>
             </a>
           </li>
         

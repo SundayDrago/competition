@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cache', function (Blueprint $table) {
-            $table->string('key')->unique();
-            $table->text('value');
-            $table->integer('expiration');
-            $table->primary('key');
-            $table->index('expiration');
+        Schema::table('answers', function (Blueprint $table) {
+            $table->foreign(['question_id'], 'answers_ibfk_1')->references(['id'])->on('questions')->onUpdate('restrict')->onDelete('restrict');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cache');
+        Schema::table('answers', function (Blueprint $table) {
+            $table->dropForeign('answers_ibfk_1');
+        });
     }
 };

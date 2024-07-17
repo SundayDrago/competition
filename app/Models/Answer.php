@@ -9,9 +9,13 @@ class Answer extends Model
 {
     use HasFactory;
 
-    protected $table = 'answers';
-    protected $fillable = ['question_id', 'answer_text', 'is_correct'];
+    protected $fillable = [
+        'question_id', 'answer_text', 'marks'
+    ];
 
+    /**
+     * Get the question that owns the answer.
+     */
     public function question()
     {
         return $this->belongsTo(Question::class);

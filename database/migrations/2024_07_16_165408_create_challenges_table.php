@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->id();
-            $table->text('question_text');
-            $table->string('category');
-            $table->unsignedBigInteger('challenge_id'); 
+        Schema::create('challenges', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('duration');
+            $table->integer('num_questions');
             $table->timestamps();
-
-            // $table->foreign('challenge_id')->references('id')->on('challenges')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('challenges');
     }
 };

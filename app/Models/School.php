@@ -12,7 +12,7 @@ class School extends Model
     protected $table = 'schools';
     protected $fillable = [
         'name',
-        'school_district',
+        'district',
         'registration_number',
         'representative_name',
         'representative_email',
