@@ -6,14 +6,19 @@ use App\Models\Answer;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class AnswerImport implements ToModel, WithHeadingRow
+class AnswersImport implements ToModel, WithHeadingRow
 {
+    /**
+    * @param array $row
+    *
+    * @return \Illuminate\Database\Eloquent\Model|null
+    */
     public function model(array $row)
     {
         return new Answer([
             'question_id' => $row['question_id'],
             'answer_text' => $row['answer_text'],
-            'is_correct' => $row['is_correct'],
+            'marks' => $row['marks'],
         ]);
     }
 }

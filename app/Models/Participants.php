@@ -16,9 +16,7 @@ class Participants extends Model
         'lastname',
         'email',
         'date_of_birth',
-        'registration_number',
         'image_file',
-        'status',
     ];
 
     public function school()

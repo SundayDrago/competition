@@ -11,11 +11,11 @@ class Attempt extends Model
 
     protected $table = 'attempts';
     protected $fillable = [
-        'participant_id',
-        'challenge_id',
-        'start_time',
-        'end_time',
-        'score',
+       'challengeNumber',
+       'username',
+       'studentNumber',
+       'score',
+       'isComplete'
     ];
 
     public function participant()

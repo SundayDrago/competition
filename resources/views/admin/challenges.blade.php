@@ -46,14 +46,6 @@
                         <label for="num_questions">Number of Questions:</label>
                         <input type="number" class="form-control" name="num_questions" id="num_questions" required>
                     </div>
-                    <div class="form-group">
-                        <label for="questions">Questions File:</label>
-                        <input type="file" class="form-control-file" name="questions" id="questions" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="answers">Answers File:</label>
-                        <input type="file" class="form-control-file" name="answers" id="answers" required>
-                    </div>
                     <button type="submit" class="btn btn-success btn-block">Import Challenge</button>
                 </form>
             </div>

@@ -26,7 +26,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Date of Birth</th>
                     <th scope="col">Student Number</th>
-                    <th scope="col">Image File/th>
+                    <th scope="col">Image File</th>
                 </tr>
             </thead>
             <tbody>

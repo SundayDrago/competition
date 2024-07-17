@@ -14,6 +14,8 @@ use App\Models\Participants;
 
 use App\Models\Rejected;
 
+use App\Models\Attempt;
+
 use App\Models\Challenge;
 
 use App\Models\Answer;
@@ -53,64 +55,14 @@ public function participantview(){
     return view('admin.participant', compact('data'));
 }
 
-public function add_challenges(Request $request)
+public function add_challenges()
 {
-    // $challenges =new 
-    $challenges =new challenge;
-
-    $challenges->title=$request->title;
-    $challenges->start_date=$request->start_date;
-    $challenges->end_date=$request->end_date;
-    $challenges->duration=$request->duration;
-    $challenges->num_questions =$request->num_questions;
     return view('admin.challenges');
    }
 public function representative_view(){
     $data1 =reprsentative::all();
     return view('admin.representative', compact('data1'));
 }
-public function import(Request $request)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'start_date' => 'required|date',
-        'end_date' => 'required|date|after_or_equal:start_date',
-        'duration' => 'required|integer|min:1',
-        'num_questions' => 'required|integer|min:1',
-        'questions' => 'required|mimes:xlsx',
-        'answers' => 'required|mimes:xlsx'
-    ]);
-
-    $challenge = Challenge::create([
-        'title' => $request->title,
-        'start_date' => $request->start_date,
-        'end_date' => $request->end_date,
-        'duration' => $request->duration,
-        'num_questions' => $request->num_questions,
-    ]);
-
-    Excel::import(new QuestionsImport, $request->file('questions'));
-    Excel::import(new AnswersImport, $request->file('answers'));
-
-    return redirect()->back()->with('success', 'Files imported successfully.');
-}
-
-public function createChallenge()
-{
-    $questions = Question::inRandomOrder()->take(10)->get(); // Get 10 random questions
-    $challenge = [];
-
-    foreach ($questions as $questions) {
-        $answers = Answer::where('question_id', $questions->id)->get();
-        $challenge[] = [
-            'questions' => $questions,
-            'answers' => $answers
-        ];
-    }
-
-    return view('admin.challenges', compact('challenge'));
-}
-
 
 //Rejected participants function
 public function viewrejected(){
@@ -120,13 +72,20 @@ public function viewrejected(){
 
 //View reports
 public function viewreport(){
+
+
     return view('admin.report');
 }
 
 
 //View attempt
 public function viewattempt(){
-    return view('admin.attempt');
+
+    // Retrieve all attempts from the database
+    $attempts = Attempt::all();
+
+    // Pass the attempts to the Blade view
+    return view('admin.attempt', compact('attempts'));
 }
 }
 

@@ -42,9 +42,9 @@
             </div>
 
             <div class="form-group row">
-                <label for="school_district" class="col-sm-4 col-form-label text-right">School District</label>
+                <label for="district" class="col-sm-4 col-form-label text-right">School District</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="school_district" name="school_district"
+                    <input type="text" class="form-control" id="district" name="district"
                         placeholder="Enter School district here!" required>
                     <div class="invalid-feedback">
                         Please enter the school district.
