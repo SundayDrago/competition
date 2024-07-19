@@ -4,15 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 
+
+
 use App\Http\Controllers\AdminController;
 
-use App\Http\Controllers\UploadController;
-
 use Maatwebsite\Excel\Facades\Excel;
-
-use App\Imports\QuestionsImport;
-
-use App\Imports\AnswersImport;
 
 use App\Models\Question;
 
@@ -49,9 +45,4 @@ Route::get('/view_reports', [AdminController::class, 'viewreport']);
 
 Route::get('/view_attempts', [AdminController::class, 'viewattempt']);
 
-Route::get('/view_upload', [UploadController::class, 'upload']); //from the sidebar.blade.php
-
-Route::post('/upload', [UploadController::class, 'viewupload'])->name('upload'); //from the upload.blade.php
-
 Route::get('/challenge', [AdminController::class, 'add_challenge']);
-
