@@ -110,15 +110,6 @@
               <span class="menu-title">Challenges</span>
             </a>
           </li>
-
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('view_upload')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document"></i>
-              </span>
-              <span class="menu-title">Uploads</span>
-            </a>
-          </li>
         
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{('view_attempts')}}">
