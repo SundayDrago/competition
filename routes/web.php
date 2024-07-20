@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\PerformanceController;
 
+use App\Http\Controllers\ImportController;
+
+//use App\Http\Controllers\challengeController;
 
 use App\Http\Controllers\AdminController;
 
@@ -45,4 +49,14 @@ Route::get('/view_reports', [AdminController::class, 'viewreport']);
 
 Route::get('/view_attempts', [AdminController::class, 'viewattempt']);
 
-Route::get('/challenge', [AdminController::class, 'add_challenge']);
+Route::get('/school_performance', [PerformanceController::class, 'showSchoolPerformance']);
+
+Route::get('/participant_performance/{participantId}', [PerformanceController::class, 'showParticipantPerformance']);
+
+//For import the files
+Route::get('/upload_files', [ImportController::class, 'showUploadForm']);
+Route::get('/import_files', [ImportController::class, 'importFiles']);
+
+//For challenges
+// Route::get('challenges_create', [ChallengeController::class, 'create']);
+// Route::post('challenges', [ChallengeController::class, 'store']);

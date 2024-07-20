@@ -25,15 +25,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($attempts as $attempt)
+                    @forelse($attempts as $attempt)
                         <tr>
                             <td>{{ $attempt->challengeNumber }}</td>
                             <td>{{ $attempt->username }}</td> 
                             <td>{{ $attempt->studentNumber }}</td>
                             <td>{{ $attempt->score }}</td>
-                            <td>{{ $attempt->isComplete }}</td>
+                            <td>{{ $attempt->isComplete ? 'Yes' : 'No' }}</td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center">No attempts found</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

@@ -13,6 +13,8 @@
       <!-------------partial------------->
       @include('admin.body')
       <!---container-scroller------------>
+      <!---------Footer----------->
+
       @include('admin.script')
       <!-- End custom js for this page -->
   </body>

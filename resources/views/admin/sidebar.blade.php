@@ -103,11 +103,11 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('challenge')}}">
+            <a class="nav-link" href="{{url('upload_files')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document"></i>
               </span>
-              <span class="menu-title">Challenges</span>
+              <span class="menu-title">File Uploads</span>
             </a>
           </li>
         
@@ -118,6 +118,37 @@
               </span>
               <span class="menu-title">Attempts</span>
             </a>
+          </li>
+
+          <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#participantSubMenu" aria-expanded="false" aria-controls="participantSubMenu">
+        <span class="menu-icon">
+            <i class="mdi mdi-account-group"></i>
+        </span>
+        <span class="menu-title">View Performance</span>
+        <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="participantSubMenu">
+        <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('school_performance') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-document"></i>
+                    </span>
+                    <span class="menu-title">Schools</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('participant_performance') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-cancel"></i>
+                    </span>
+                    <span class="menu-title">Participants</span>
+                </a>
+              </li>
+              </ul>
+            </div>
           </li>
 
           <li class="nav-item menu-items">
