@@ -46,7 +46,7 @@ https://templatemo.com/tm-557-grad-school
         <div class="col-md-12">
           <p><i class="fa fa-copyright"></i> Copyright 2024 by CLI Competition  
           
-           | Design: <a href="index.html" rel="sponsored" target="_parent">G-3</a></p>
+           | Design: <a href="index.html" rel="sponsored" target="_parent">G-36</a></p>
         </div>
       </div>
     </div>

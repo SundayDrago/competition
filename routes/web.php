@@ -8,7 +8,7 @@ use App\Http\Controllers\PerformanceController;
 
 use App\Http\Controllers\ImportController;
 
-//use App\Http\Controllers\challengeController;
+use App\Http\Controllers\challengeController;
 
 use App\Http\Controllers\AdminController;
 
@@ -17,6 +17,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Question;
 
 use App\Models\Answer;
+
+use App\Models\Challenge;
 
 
 
@@ -51,12 +53,26 @@ Route::get('/view_attempts', [AdminController::class, 'viewattempt']);
 
 Route::get('/school_performance', [PerformanceController::class, 'showSchoolPerformance']);
 
-Route::get('/participant_performance/{participantId}', [PerformanceController::class, 'showParticipantPerformance']);
+Route::get('/participant_performance', [PerformanceController::class, 'showParticipantPerformance']);
 
 //For import the files
 Route::get('/upload_files', [ImportController::class, 'showUploadForm']);
-Route::get('/import_files', [ImportController::class, 'importFiles']);
+Route::post('/import_files', [ImportController::class, 'importFiles']);
 
 //For challenges
-// Route::get('challenges_create', [ChallengeController::class, 'create']);
-// Route::post('challenges', [ChallengeController::class, 'store']);
+
+//Answers
+Route::get('/upload_answers', [ImportController::class, 'showUploadAnswerForms']);
+Route::post('/import_answers', [ImportController::class, 'importAnswers']);
+
+
+//Challenge routes
+// Route to display the challenge creation form
+Route::get('get_challenges', [ChallengeController::class, 'showChallenge']);
+
+// Route to handle the challenge form submission
+Route::post('post_challenges', [ChallengeController::class, 'saveChallenge']);
+
+//Let us view the challenge
+Route::get('/view_challenges', [ChallengeController::class, 'index'])->name('view_challenges');
+
