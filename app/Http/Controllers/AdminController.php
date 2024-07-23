@@ -84,6 +84,9 @@ public function viewattempt(){
     // Retrieve all attempts from the database
     $attempts = Attempt::all();
 
+    // Debug the data
+    //dd($attempts);
+
     // Pass the attempts to the Blade view
     return view('admin.attempt', compact('attempts'));
 }

@@ -92,7 +92,9 @@
             </div>
         </form>
     </div>
+
    </div>
+
    <!-- Optional: JavaScript for form validation -->
     <!-- container-scroller -->
       @include('admin.script')

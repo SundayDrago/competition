@@ -4,15 +4,15 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\PerformanceController;
+
+use App\Http\Controllers\ImportController;
+
+//use App\Http\Controllers\challengeController;
+
 use App\Http\Controllers\AdminController;
 
-use App\Http\Controllers\UploadController;
-
 use Maatwebsite\Excel\Facades\Excel;
-
-use App\Imports\QuestionsImport;
-
-use App\Imports\AnswersImport;
 
 use App\Models\Question;
 
@@ -51,12 +51,14 @@ Route::get('/view_reports', [AdminController::class, 'viewreport']);
 
 Route::get('/view_attempts', [AdminController::class, 'viewattempt']);
 
-Route::get('/view_upload', [UploadController::class, 'upload']); //from the sidebar.blade.php
+Route::get('/school_performance', [PerformanceController::class, 'showSchoolPerformance']);
 
-Route::post('/upload', [UploadController::class, 'viewupload'])->name('upload'); //from the upload.blade.php
+Route::get('/participant_performance/{participantId}', [PerformanceController::class, 'showParticipantPerformance']);
 
-// Route::get('/challenge', [AdminController::class, 'add_challenge']);
-Route::get('/challenge', function () {
-    $challenges = Challenge::orderBy('start_date', 'asc')->get();
-    return view('admin.challenges', ['challenges' => $challenges]);
-});
+//For import the files
+Route::get('/upload_files', [ImportController::class, 'showUploadForm']);
+Route::get('/import_files', [ImportController::class, 'importFiles']);
+
+//For challenges
+// Route::get('challenges_create', [ChallengeController::class, 'create']);
+// Route::post('challenges', [ChallengeController::class, 'store']);

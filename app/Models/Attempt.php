@@ -9,7 +9,7 @@ class Attempt extends Model
 {
     use HasFactory;
 
-    protected $table = 'attempts';
+    protected $table = 'attempt';
     protected $fillable = [
        'challengeNumber',
        'username',
