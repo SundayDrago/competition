@@ -45,4 +45,5 @@ class ChallengeController extends Controller
         return view('admin.view_challenge', compact('challenges'));
     }
     
+
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
 {
+
     use HasFactory;
     public $timestamps = true;
     protected $table = 'challenge';
@@ -21,5 +22,8 @@ class Challenge extends Model
     public function questions()
     {
         return $this->hasMany(Question::class, 'challengeNumber', 'challengeNumber');
+
     }
+
+
 }
