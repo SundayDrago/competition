@@ -18,6 +18,8 @@ use App\Models\Question;
 
 use App\Models\Answer;
 
+use App\Models\Challenge;
+
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -53,5 +55,8 @@ Route::get('/view_upload', [UploadController::class, 'upload']); //from the side
 
 Route::post('/upload', [UploadController::class, 'viewupload'])->name('upload'); //from the upload.blade.php
 
-Route::get('/challenge', [AdminController::class, 'add_challenge']);
-
+// Route::get('/challenge', [AdminController::class, 'add_challenge']);
+Route::get('/challenge', function () {
+    $challenges = Challenge::orderBy('start_date', 'asc')->get();
+    return view('admin.challenges', ['challenges' => $challenges]);
+});

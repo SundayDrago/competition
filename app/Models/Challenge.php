@@ -7,19 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
 {
-    use HasFactory;
-
-    protected $table = 'challenges';
+    protected $table = 'challenge'; // Specify your table name if different from 'challenges'
+    public $timestamps = false; 
     protected $fillable = [
-        'title',
-        'start_date',
-        'end_date',
-        'duration',
-        'num_questions',
+        'challengeNumber', 'start_date', 'end_date', 'duration', 'num_questions'
     ];
 
-    public function questions()
-    {
-        return $this->hasMany(Question::class);
-    }
 }
