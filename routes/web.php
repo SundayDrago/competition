@@ -37,7 +37,9 @@ Route::middleware([
 });
 Route::get('/admin', 'AdminController@home')->name('admin.home');
 
-Route::get('/add_schools_view', [AdminController::class, 'addview']);//From the sidebar.blade.php
+Route::get('/add_schools_view', [AdminController::class, 'addview']); //From the sidebar.blade.php
+
+Route::get('/uploadschool', [AdminController::class, 'uploadschool'])->name('uploadschool'); //From the sidebar.blade.php
 
 Route::post('/addschool', [AdminController::class, 'addschools']); //From the school.blade.php
 
@@ -80,3 +82,6 @@ Route::get('/search-challenge', [AdminController::class, 'searchChallenge']);
 
 #Most correctly answered question
 Route::get('/analytics', [AdminController::class, 'showMostCorrectlyAnsweredQuestions']);
+
+// In routes/web.php
+Route::get('/participant/{studentNumber}/questions/', [AdminController::class, 'showrepetition']);
