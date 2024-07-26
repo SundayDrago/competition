@@ -27,10 +27,11 @@ https://templatemo.com/tm-557-grad-school
 
       <div class="video-overlay header-text">
           <div class="caption">
-              <h6>School Site</h6>
-              <h2><em>Cli</em> Competition</h2>
+               <h6>Your Are Welcome To</h6> 
+              <h2><em>Mathematics</em> Competitions</h2>
+              <h2><em>Site</em></h2> 
               <div class="main-button">
-                  <div class="scroll-to-section"><a href="#section2">Discover more</a></div>
+                  <!-- <div class="scroll-to-section"><a href="#section2">Discover more</a></div> -->
               </div>
           </div>
       </div>

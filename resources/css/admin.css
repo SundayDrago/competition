@@ -1,0 +1,36 @@
+/* admin.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+}
+
+.table tbody td {
+    background-color: white;
+    color: black;
+}
+
+.container-fluid.page-body-wrapper {
+    padding-top: 50px;
+}
+
+h1.text-center {
+    color: #343a40;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.table {
+    border: 1px solid #343a40;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #343a40;
+}

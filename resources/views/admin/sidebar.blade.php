@@ -57,7 +57,7 @@
           </li>
           <li class="nav-item menu-items">
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('dashboard')}}">
+            <a class="nav-link" href="{{url('home')}}">
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
@@ -103,11 +103,11 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('upload_files')}}">
+          <a class="nav-link" href="{{ url('/challenge') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document"></i>
               </span>
-              <span class="menu-title">File Uploads</span>
+              <span class="menu-title">Challenges</span>
             </a>
           </li>
         
@@ -151,6 +151,52 @@
             </div>
           </li>
 
+          <li class="nav-item menu-items {{ request()->is('view_attempts', 'view_schools', 'view_students') ? 'active' : '' }}">
+    <a class="nav-link" href="{{url('school_ranking')}}">
+        <span class="menu-icon">
+            <i class="mdi mdi-file-document"></i>
+        </span>
+        <span class="menu-title">School Ranking</span>
+    </a>
+      </li>
+
+<li class="nav-item menu-items">
+    <a class="nav-link" href="#" id="listsToggle">
+        <span class="menu-icon">
+            <i class="mdi mdi-file-document"></i>
+        </span>
+        <span class="menu-title">Lists</span>
+        <i class="menu-arrow"></i>
+    </a>
+    <div id="listsSubMenu" style="display: none;">
+        <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('incomplete_challenges') }}">
+                    InComplete Challenges
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('best_schools') }}">
+                    Best Shchools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('worst_schools') }}">
+                    Worst School
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+<li class="nav-item menu-items {{ request()->is('view_attempts', 'view_schools', 'view_students') ? 'active' : '' }}">
+    <a class="nav-link" href="{{url(' ')}}">
+        <span class="menu-icon">
+            <i class="mdi mdi-file-document"></i>
+        </span>
+        <span class="menu-title">Analytics</span>
+    </a>
+      </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('view_reports')}}">
               <span class="menu-icon">
@@ -161,3 +207,15 @@
           </li>
         </ul>
       </nav>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#listsToggle').click(function(e) {
+            e.preventDefault(); // Prevent the default anchor click behavior
+            $('#listsSubMenu').toggle(); // Toggle the sub-menu display
+        });
+    });
+</script>
+
+
+      

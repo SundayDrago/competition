@@ -1,3 +1,16 @@
+<style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 <section class="features">
     <div class="container">
       <div class="row">
@@ -5,12 +18,13 @@
           <div class="features-post">
             <div class="features-content">
               <div class="content-show">
-                <h4><i class="fa fa-pencil"></i>All Challenges</h4>
+                <h4><i class="fa fa-pencil"></i>Available Challenges</h4>
               </div>
               <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
+              @foreach ($validChallengeNumbers as $challengeNumber)
+               <p>Challenge Number: {{ $challengeNumber }}</p>
+              @endforeach
+                <!-- <div class="scroll-to-section"><a href="#section2">More Info.</a></div> -->
             </div>
             </div>
           </div>
@@ -19,12 +33,20 @@
           <div class="features-post second-features">
             <div class="features-content">
               <div class="content-show">
-                <h4><i class="fa fa-graduation-cap"></i>Virtual Challenges</h4>
+                <h4><i class="fa fa-graduation-cap"></i>Challenge Winner</h4>
               </div>
               <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section3">Details</a></div>
+            @foreach ($winners as $winner)
+            <div class="winner-container">
+            <img src="{{ asset($winner->image_path) }}" alt="Winner Image">
+            <div class="winner-details">
+                <h3>Challenge Number: {{ $winner->challengeNumber }}</h3>
+                <p>First Name: {{ $winner->firstname }}</p>
+                <p>Last Name: {{ $winner->lastname }}</p>
+            </div>
+        </div>
+            @endforeach
+    
             </div>
             </div>
           </div>
@@ -33,12 +55,25 @@
           <div class="features-post third-features">
             <div class="features-content">
               <div class="content-show">
-                <h4><i class="fa fa-book"></i>Physical Challenges</h4>
+                <h4><i class="fa fa-book"></i>Registered schools</h4>
               </div>
               <div class="content-hide">
-                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
-                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-                <div class="scroll-to-section"><a href="#section4">Read More</a></div>
+              <table>
+        <thead>
+            <tr>
+                <th>School Name</th>
+                <th>District</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($schools as $school)
+                <tr>
+                    <td>{{ $school->name }}</td>
+                    <td>{{ $school->district }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
             </div>
             </div>
           </div>
@@ -51,17 +86,17 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="section-heading">
+          <!-- <div class="section-heading">
             <h2>Why choose CLI Competition?</h2>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-12">
           <div id='tabs'>
-            <ul>
+            <!-- <ul>
               <li><a href='#tabs-1'>Efficiency and Speed</a></li>
               <li><a href='#tabs-2'>Resource Usage</a></li>
               <li><a href='#tabs-3'>Skill Development</a></li>
-            </ul>
+            </ul> -->
             <section class='tabs-content'>
               <article id='tabs-1'>
                 <div class="row">
@@ -69,12 +104,12 @@
                     <img src="assets/images/choose-us-image-01.png" alt="">
                   </div>
                   <div class="col-md-6">
-                    <h4>Text-Based Interface</h4>
-                    <p>CLIs are typically faster for performing tasks because they rely on text commands rather than graphical interfaces, which can be slower to navigate.. Thank you.</p>
+                    <h4>Summary About The competitions</h4>
+                    <p>Participants engage in a problem-solving challenge, where they submit mathematical solutions. Each computational attempt is recorded, and the solution submissions are evaluated for accuracy. Scores are tracked and analyzed to assess performance. Detailed attempt analysis helps identify top performers and their proficiency in solving mathematical problems. The winner of each challenge is awarded accordingly</p>
                   </div>
                 </div>
               </article>
-              <article id='tabs-2'>
+              <!-- <article id='tabs-2'>
                 <div class="row">
                   <div class="col-md-6">
                     <img src="assets/images/choose-us-image-02.png" alt="">
@@ -84,7 +119,7 @@
                     <p>CLI applications generally consume fewer system resources (CPU, memory) compared to GUI applications. This is particularly beneficial in resource-constrained environments.</p> 
                   </div>
                 </div>
-              </article>
+              </article> -->
               <article id='tabs-3'>
                 <div class="row">
                   <div class="col-md-6">
@@ -92,7 +127,7 @@
                   </div>
                   <div class="col-md-6">
                     <h4>Learning Opportunity</h4>
-                    <p>CLIs often provide more control and options for users, allowing for precise and complex operations that may not be available in GUI applications.</p>
+                    <p>Mathematical competitions are crucial for learning and skill development. They enhance problem-solving abilities, apply theoretical knowledge practically, develop computational skills, and foster innovation. Participants build confidence, network with peers, and gain career and academic advantages, making these competitions a valuable learning opportunity.</p>
                   </div>
                 </div>
               </article>
@@ -103,13 +138,13 @@
     </div>
   </section>
 
-  <section class="section coming-soon" data-section="section3">
+  <!-- <section class="section coming-soon" data-section="section3">
     <div class="container">
       <div class="row">
         <div class="col-md-7 col-xs-12">
           <div class="continer centerIt">
-            <div>
-              <h4>Take <em>CLI Competition</em> and win an award for your school.</h4>
+            <div> -->
+              <!-- <h4>Take <em>CLI Competition</em> and win an award for your school.</h4>
               <div class="counter">
 
                 <div class="days">
@@ -169,9 +204,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="section video" data-section="section5">
+  <!-- <section class="section video" data-section="section5">
     <div class="container">
       <div class="row">
         <div class="col-md-6 align-self-center">
@@ -195,9 +230,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="section contact" data-section="section6">
+  <!-- <section class="section contact" data-section="section6">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -205,11 +240,11 @@
             <h2>Let’s Keep In Touch</h2>
           </div>
         </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
         
         <!-- Do you need a working HTML contact-form script?
                 	
-                    Please visit https://templatemo.com/contact page -->
+                    Please visit https://templatemo.com/contact page
                     
           <form id="contact" action="" method="post">
             <div class="row">
@@ -235,12 +270,12 @@
               </div>
             </div>
           </form>
-        </div>
-        <div class="col-md-6">
+        </div> -->
+        <!-- <div class="col-md-6">
           <div id="map">
             <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="422px" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
-  </section>
+  </section> -->

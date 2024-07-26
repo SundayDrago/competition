@@ -47,6 +47,14 @@ Route::get('/retrieve_representatives', [AdminController::class, 'representative
 
 Route::get('/participant_rejected', [AdminController::class, 'viewrejected']);
 
+Route::get('/challenge', [AdminController::class, 'challengeview']);
+
+Route::get('/addchallenge', function () {
+    return view('admin.uploadchallenge');
+})->name('addchallenge');
+
+Route::post('/uploadchallenge', [AdminController::class, 'uploadchallenge'])->name('uploadchallenge');
+
 Route::get('/view_reports', [AdminController::class, 'viewreport']);
 
 Route::get('/view_attempts', [AdminController::class, 'viewattempt']);
@@ -62,3 +70,13 @@ Route::get('/import_files', [ImportController::class, 'importFiles']);
 //For challenges
 // Route::get('challenges_create', [ChallengeController::class, 'create']);
 // Route::post('challenges', [ChallengeController::class, 'store']);
+Route::get('/school_ranking', [AdminController::class, 'rankSchools']);
+Route::get('/incomplete_challenges', [AdminController::class, 'retrieveIncompleteChallenges']);
+Route::get('/best_schools', [AdminController::class, 'bestPerformingSchools']);
+Route::get('/worst_schools', function () {
+    return view('admin.worst_school');
+});
+Route::get('/search-challenge', [AdminController::class, 'searchChallenge']);
+
+#Most correctly answered question
+Route::get('/analytics', [AdminController::class, 'showMostCorrectlyAnsweredQuestions']);

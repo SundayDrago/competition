@@ -8,9 +8,11 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Challenge;
 
-class SendReport extends Mailable
+class ChallengeExpiredNotification extends Mailable
 {
+    
     use Queueable, SerializesModels;
 
     public $challenge;
