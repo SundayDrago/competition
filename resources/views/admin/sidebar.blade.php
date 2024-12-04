@@ -1,17 +1,17 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="log1-style"><img src="dist/assets/images/log1.png" alt="logo" style="width:250px; height:150px" /></a>
+          <a class="log1-style"><img src="dist/assets/images/log1.png" alt="logo" class="w-150 h-150" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="dist/assets/images/faces/face15.jpg" alt="">
+                  <img class="img-xs rounded-circle " src="dist/assets/images/faces/face15.png" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Sofia Margrette</h5>
+                  <h5 class="mb-0 font-weight-normal text-white">Drago Sun</h5>
                   <span>Challenge Admin</span>
                 </div>
               </div>
@@ -57,7 +57,7 @@
           </li>
           <li class="nav-item menu-items">
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('dashboard')}}">
+            <a class="nav-link" href="{{route('admin.home')}}">
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
@@ -107,9 +107,59 @@
               <span class="menu-icon">
                 <i class="mdi mdi-file-document"></i>
               </span>
-              <span class="menu-title">File Uploads</span>
+              <span class="menu-title">Question Uploads</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('upload_answers')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document"></i>
+              </span>
+              <span class="menu-title">Answer Uploads</span>
+            </a>
+          </li>
+
+          <!-- Your Navigation Structure -->
+<li class="nav-item menu-items">
+    <a class="nav-link" data-toggle="collapse" href="#challengeSubMenu" aria-expanded="false" aria-controls="challengeSubMenu">
+        <span class="menu-icon">
+            <i class="mdi mdi-file-document"></i>
+        </span>
+        <span class="menu-title">Challenge</span>
+        <i class="menu-arrow"></i>
+    </a>
+    <div class="collapse" id="challengeSubMenu">
+        <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('get_challenges') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-plus"></i>
+                    </span>
+                    <span class="menu-title">Create Challenges</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('view_challenges')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-eye"></i>
+                    </span>
+                    <span class="menu-title">View Challenges</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-pdf"></i>
+                    </span>
+                    <span class="menu-title">Challenge PDF</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+
+
         
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{('view_attempts')}}">

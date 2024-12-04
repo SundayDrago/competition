@@ -3,38 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Question;
 use App\Models\Challenge;
-use App\Models\Questions;
-use App\Models\Answers;
 
 class ChallengeController extends Controller
 {
-    public function showQuestions($id)
-    {
-        // Get the challenge based on the provided id
-        $challenge = Challenge::findOrFail($id);
+    public function saveChallenge(Request $request){
+        //Let get the total number of questions in the table by counting
 
-        // Get questions for the challenge
-        $questions = Questions::where('challenge_id', $id)->get();
+        $sumQuestion =Question::count();
 
-        // Prepare an array to store questions and their answers
-        $questionsWithAnswers = [];
+       //Let's define a variable that gets the max number of questions(only 10 not less or more)
+       $maxQuestionz = min(10, $sumQuestion);
 
-        foreach ($questions as $question) {
-            // Find corresponding answer for each question
-            $answer = Answers::where('question_id', $question->id)->first();
+       if($sumQuestion>0){
+        //Let's get the random number of questions
+        $randomQuestion = rand(10, $maxQuestionz);
 
-            // Push question and answer to the array
-            $questionsWithAnswers[] = [
-                'question' => $question->question_text,
-                'answer' => $answer ? $answer->answer_text : 'No answer found',
-            ];
-        }
+        //Let us create a challenge with random questions
+        $challenge = new Challenge();
+        $challenge->challengeNumber =$request->challengeNumber;
+        $challenge->start_date = $request->start_date;
+        $challenge ->end_date =$request->end_date;
+        $challenge->duration =$request->duration;
+        $challenge->num_questions =$randomQuestion;
+        $challenge->save();
 
-        // Pass data to the view
-        return view('questions', [
-            'challenge' => $challenge,
-            'questionsWithAnswers' => $questionsWithAnswers,
-        ]);
+        return redirect()->back()->with('message', 'A new challenge created successfully!');
+       }
+       else{
+        return redirect()->back()->with('message', 'No questions in the table');
+       }
     }
+    public function showChallenge(){
+        return view('admin.challenge');
+    }
+
+    public function index()
+    {
+        $challenges = Challenge::with('questions')->get();
+        return view('admin.view_challenge', compact('challenges'));
+    }
+    
+
 }

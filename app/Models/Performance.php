@@ -22,12 +22,4 @@ class Performance extends Model
         return $this->belongsTo(Participant::class);
     }
 
-    public static function getParticipantPerformanceOverYears($participantId)
-    {
-        return self::where('participant_id', $participantId)
-            ->selectRaw('year, AVG(average_score) as average_score, SUM(total_attempts) as total_attempts')
-            ->groupBy('year')
-            ->orderBy('year')
-            ->get();
-    }
 }
